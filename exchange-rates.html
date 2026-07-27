@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOC Rate Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B1F2A;
+    --panel:#0F2836;
+    --panel-2:#132F3F;
+    --line:#1F4356;
+    --gold:#C9A227;
+    --gold-dim:#8A7326;
+    --text:#EDEFF2;
+    --dim:#7C93A0;
+    --up:#5CA37A;
+    --down:#C0605A;
+  }
+
+  *{box-sizing:border-box;}
+
+  body{
+    margin:0;
+    background:
+      radial-gradient(1200px 600px at 15% -10%, rgba(201,162,39,0.08), transparent 60%),
+      var(--ink);
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    min-height:100vh;
+    padding:32px 20px 64px;
+  }
+
+  .wrap{
+    max-width:980px;
+    margin:0 auto;
+  }
+
+  /* ---- Header / board marquee ---- */
+  header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:16px;
+    border-bottom:2px solid var(--gold-dim);
+    padding-bottom:18px;
+    margin-bottom:8px;
+  }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin:0 0 6px;
+  }
+
+  h1{
+    font-family:'Big Shoulders Display', sans-serif;
+    font-weight:800;
+    font-size:clamp(32px, 6vw, 52px);
+    line-height:0.95;
+    letter-spacing:0.01em;
+    text-transform:uppercase;
+    margin:0;
+  }
+
+  h1 span{ color:var(--gold); }
+
+  .meta{
+    text-align:right;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--dim);
+  }
+
+  .meta .status-dot{
+    display:inline-block;
+    width:7px;height:7px;
+    border-radius:50%;
+    background:var(--dim);
+    margin-right:6px;
+    position:relative;
+    top:-1px;
+  }
+
+  .meta.live .status-dot{
+    background:var(--up);
+    box-shadow:0 0 0 0 rgba(92,163,122,0.6);
+    animation:pulse 2s infinite;
+  }
+
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(92,163,122,0.5);}
+    70%{box-shadow:0 0 0 6px rgba(92,163,122,0);}
+    100%{box-shadow:0 0 0 0 rgba(92,163,122,0);}
+  }
+
+  .toolbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:18px 0 22px;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+
+  .search{
+    background:var(--panel);
+    border:1px solid var(--line);
+    color:var(--text);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    padding:9px 12px;
+    border-radius:3px;
+    width:220px;
+    outline:none;
+  }
+  .search::placeholder{ color:var(--dim); }
+  .search:focus{ border-color:var(--gold-dim); }
+
+  .refresh-btn{
+    background:transparent;
+    border:1px solid var(--gold-dim);
+    color:var(--gold);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:9px 16px;
+    border-radius:3px;
+    cursor:pointer;
+    transition:background 0.15s ease, color 0.15s ease;
+  }
+  .refresh-btn:hover{ background:var(--gold); color:var(--ink); }
+  .refresh-btn:focus-visible{ outline:2px solid var(--gold); outline-offset:2px; }
+  .refresh-btn[disabled]{ opacity:0.5; cursor:default; }
+
+  /* ---- Board / table ---- */
+  .board{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+  }
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-family:'IBM Plex Mono', monospace;
+  }
+
+  thead .grp-row th{
+    background:var(--panel-2);
+    color:var(--dim);
+    font-size:10px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    font-weight:500;
+    padding:10px 14px 4px;
+    text-align:center;
+    border-bottom:1px solid var(--line);
+  }
+
+  thead .sub-row th{
+    background:var(--panel-2);
+    color:var(--gold);
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    font-weight:600;
+    padding:0 14px 10px;
+    text-align:right;
+    border-bottom:1px solid var(--gold-dim);
+    white-space:nowrap;
+  }
+
+  thead .sub-row th.currency-col{
+    text-align:left;
+    color:var(--dim);
+  }
+
+  tbody td{
+    padding:13px 14px;
+    text-align:right;
+    font-size:14px;
+    border-bottom:1px solid var(--line);
+    font-variant-numeric:tabular-nums;
+  }
+
+  tbody tr:last-child td{ border-bottom:none; }
+
+  tbody tr{
+    transition:background 0.15s ease;
+  }
+  tbody tr:hover{ background:rgba(201,162,39,0.05); }
+
+  .currency-cell{
+    text-align:left;
+    font-family:'Inter', sans-serif;
+  }
+
+  .code{
+    font-family:'Big Shoulders Display', sans-serif;
+    font-weight:700;
+    font-size:17px;
+    letter-spacing:0.03em;
+    color:var(--text);
+  }
+
+  .label{
+    display:block;
+    font-size:11px;
+    color:var(--dim);
+    font-family:'IBM Plex Mono', monospace;
+    margin-top:2px;
+  }
+
+  .rate-null{ color:var(--dim); }
+
+  /* split-flap reveal */
+  @keyframes flip-in{
+    0%{ opacity:0; transform:translateY(-6px); filter:blur(1px); }
+    100%{ opacity:1; transform:translateY(0); filter:blur(0); }
+  }
+  tbody tr{
+    animation:flip-in 0.35s ease both;
+  }
+
+  /* ---- States ---- */
+  .state{
+    padding:60px 20px;
+    text-align:center;
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--dim);
+  }
+  .state strong{ color:var(--text); display:block; margin-bottom:8px; font-size:15px; }
+  .state .retry{
+    margin-top:16px;
+    display:inline-block;
+    background:transparent;
+    border:1px solid var(--gold-dim);
+    color:var(--gold);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    padding:8px 16px;
+    border-radius:3px;
+    cursor:pointer;
+  }
+  .state .retry:hover{ background:var(--gold); color:var(--ink); }
+
+  .spinner{
+    width:22px;height:22px;
+    border:2px solid var(--line);
+    border-top-color:var(--gold);
+    border-radius:50%;
+    margin:0 auto 14px;
+    animation:spin 0.8s linear infinite;
+  }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+
+  footer{
+    margin-top:20px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--dim);
+    text-align:center;
+  }
+
+  @media (max-width:640px){
+    thead .grp-row{ display:none; }
+    thead .sub-row th{ font-size:9px; padding:8px 6px; }
+    tbody td{ padding:10px 6px; font-size:12px; }
+    .code{ font-size:14px; }
+    .search{ width:100%; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    
+    <div class="meta" id="metaBox">
+      <span class="status-dot"></span><span id="statusText">Connecting&hellip;</span>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <input type="text" class="search" id="searchInput" placeholder="Filter currency&hellip; e.g. USD" autocomplete="off">
+    <button class="refresh-btn" id="refreshBtn">Refresh</button>
+  </div>
+
+  <div class="board" id="board">
+    <div class="state" id="stateBox">
+      <div class="spinner"></div>
+      <strong>Reading the board&hellip;</strong>
+      Pulling latest rates from the API
+    </div>
+  </div>
+
+  <footer>Notes / Drafts / Transfers &mdash; buying &amp; selling, LKR per unit. Source: boc.lk</footer>
+</div>
+
+<script>
+(function(){
+  const API_URL = 'http://localhost/api/exchange-rates.php';
+
+  const boardEl = document.getElementById('board');
+  const stateBox = document.getElementById('stateBox');
+  const statusText = document.getElementById('statusText');
+  const metaBox = document.getElementById('metaBox');
+  const refreshBtn = document.getElementById('refreshBtn');
+  const searchInput = document.getElementById('searchInput');
+
+  let currentData = [];
+
+  function fmt(v){
+    if(v === null || v === undefined) return '<span class="rate-null">&mdash;</span>';
+    return Number(v).toFixed(4);
+  }
+
+  function renderTable(rows){
+    if(!rows.length){
+      boardEl.innerHTML = `
+        <div class="state">
+          <strong>No matching currency</strong>
+          Try a different code or clear the filter.
+        </div>`;
+      return;
+    }
+
+    const body = rows.map(r => {
+      const name = r.currency_label || r.code || '—';
+      const code = r.code || (r.currency_label || '???').toUpperCase();
+      return `
+        <tr>
+          <td class="currency-cell">
+            <span class="code">${escapeHtml(code)}</span>
+            <span class="label">${escapeHtml(name)}</span>
+          </td>
+          <td>${fmt(r.notes.buying)}</td>
+          <td>${fmt(r.notes.selling)}</td>
+          <td>${fmt(r.drafts.buying)}</td>
+          <td>${fmt(r.drafts.selling)}</td>
+          <td>${fmt(r.transfers.buying)}</td>
+          <td>${fmt(r.transfers.selling)}</td>
+        </tr>`;
+    }).join('');
+
+    boardEl.innerHTML = `
+      <table>
+        <thead>
+          <tr class="grp-row">
+            <th></th>
+            <th colspan="2">Notes</th>
+            <th colspan="2">Drafts</th>
+            <th colspan="2">Telegraphic Transfer</th>
+          </tr>
+          <tr class="sub-row">
+            <th class="currency-col">Currency</th>
+            <th>Buying</th><th>Selling</th>
+            <th>Buying</th><th>Selling</th>
+            <th>Buying</th><th>Selling</th>
+          </tr>
+        </thead>
+        <tbody>${body}</tbody>
+      </table>`;
+  }
+
+  function escapeHtml(str){
+    return String(str).replace(/[&<>"']/g, s => ({
+      '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
+    }[s]));
+  }
+
+  function showError(message){
+    metaBox.classList.remove('live');
+    statusText.textContent = 'Offline';
+    boardEl.innerHTML = `
+      <div class="state">
+        <strong>Could not load rates</strong>
+        ${escapeHtml(message)}
+        <div>
+          <button class="retry" id="retryBtn">Try again</button>
+        </div>
+      </div>`;
+    document.getElementById('retryBtn').addEventListener('click', load);
+  }
+
+  function setLoading(){
+    metaBox.classList.remove('live');
+    statusText.textContent = 'Connecting…';
+    refreshBtn.setAttribute('disabled', 'true');
+  }
+
+  async function load(){
+    setLoading();
+    try{
+      const res = await fetch(API_URL, { cache: 'no-store' });
+      const json = await res.json();
+
+      if(!res.ok || json.status !== 'success'){
+        throw new Error(json.message || `Request failed (${res.status})`);
+      }
+
+      currentData = json.data || [];
+      applyFilter();
+
+      metaBox.classList.add('live');
+      statusText.textContent = `Updated ${json.updated_at || new Date().toLocaleString()}`;
+    }catch(err){
+      showError(err.message || 'Network error reaching the API.');
+    }finally{
+      refreshBtn.removeAttribute('disabled');
+    }
+  }
+
+  function applyFilter(){
+    const q = searchInput.value.trim().toUpperCase();
+    if(!q){
+      renderTable(currentData);
+      return;
+    }
+    const filtered = currentData.filter(r =>
+      (r.code || '').toUpperCase().includes(q) ||
+      (r.currency_label || '').toUpperCase().includes(q)
+    );
+    renderTable(filtered);
+  }
+
+  refreshBtn.addEventListener('click', load);
+  searchInput.addEventListener('input', applyFilter);
+
+  load();
+})();
+</script>
+</body>
+</html>
