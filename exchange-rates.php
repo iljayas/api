@@ -8,7 +8,7 @@ header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *');
 
 $cacheFile   = __DIR__ . '/cache_rates.json';
-$cacheTime   = 10800; // 3 hour
+$cacheTime   = 3600; // 3 hour
 $debug       = isset($_GET['debug']) && $_GET['debug'] == '1'; // ?debug=1 to bypass cache & show raw counts
 
 // ---------------------------------------------------------
