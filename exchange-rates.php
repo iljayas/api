@@ -187,7 +187,7 @@ $response = [
     'status'     => 'success',
     'bank'       => 'Bank of Ceylon (BOC)',
     'source'     => $targetUrl,
-    'updated_at' => date('Y-m-d H:i:s'),
+    'updated_at' => (new DateTime('now', new DateTimeZone('Asia/Colombo')))->format('Y-m-d H:i:s'),
     'count'      => count($rates),
     'data'       => $rates,
 ];
