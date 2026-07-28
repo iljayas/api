@@ -2,15 +2,15 @@
     "status": "success",
     "bank": "Bank of Ceylon (BOC)",
     "source": "https:\/\/www.boc.lk\/rates-tariff",
-    "updated_at": "2026-07-27 14:50:19",
+    "updated_at": "2026-07-28 05:40:19",
     "count": 26,
     "data": [
         {
             "currency_label": "UAE DIRHAM flag",
             "code": "AED",
             "notes": {
-                "buying": 82.9971,
-                "selling": 96.3452
+                "buying": 82.8822,
+                "selling": 96.3608
             },
             "drafts": {
                 "buying": null,
@@ -25,24 +25,24 @@
             "currency_label": "AUSTRALIAN DOLLAR flag",
             "code": "AUD",
             "notes": {
-                "buying": 228.0829,
-                "selling": 242.0037
+                "buying": 227.7384,
+                "selling": 241.661
             },
             "drafts": {
-                "buying": 225.3243,
-                "selling": 242.0037
+                "buying": 224.9451,
+                "selling": 241.661
             },
             "transfers": {
-                "buying": 228.5073,
-                "selling": 242.0037
+                "buying": 228.1696,
+                "selling": 241.661
             }
         },
         {
             "currency_label": "BAHARAIN DINAR flag",
             "code": "BHD",
             "notes": {
-                "buying": 769.6813,
-                "selling": 909.4021
+                "buying": 766.0778,
+                "selling": 905.6106
             },
             "drafts": {
                 "buying": null,
@@ -57,48 +57,48 @@
             "currency_label": "CANADIAN DOLLAR flag",
             "code": "CAD",
             "notes": {
-                "buying": 232.1682,
-                "selling": 244.5784
+                "buying": 231.5681,
+                "selling": 243.6537
             },
             "drafts": {
-                "buying": 231.7311,
-                "selling": 244.5784
+                "buying": 231.1419,
+                "selling": 243.6537
             },
             "transfers": {
-                "buying": 233.601,
-                "selling": 244.5784
+                "buying": 232.9589,
+                "selling": 243.6537
             }
         },
         {
             "currency_label": "SWISS FRANC flag",
             "code": "CHF",
             "notes": {
-                "buying": 390.9362,
-                "selling": 423.5235
+                "buying": 389.5595,
+                "selling": 420.6809
             },
             "drafts": {
-                "buying": 399.043,
-                "selling": 423.5235
+                "buying": 397.2537,
+                "selling": 420.6809
             },
             "transfers": {
-                "buying": 404.1157,
-                "selling": 423.5235
+                "buying": 402.0769,
+                "selling": 420.6809
             }
         },
         {
             "currency_label": "RENMINBI flag",
             "code": "CNY",
             "notes": {
-                "buying": 46.1105,
-                "selling": 50.7665
+                "buying": 46.0281,
+                "selling": 50.7906
             },
             "drafts": {
-                "buying": 48.2532,
-                "selling": 50.7665
+                "buying": 48.2346,
+                "selling": 50.7906
             },
             "transfers": {
-                "buying": 48.5809,
-                "selling": 50.7665
+                "buying": 48.5706,
+                "selling": 50.7906
             }
         },
         {
@@ -109,84 +109,84 @@
                 "selling": null
             },
             "drafts": {
-                "buying": 49.6287,
-                "selling": 52.684
+                "buying": 49.4984,
+                "selling": 52.4921
             },
             "transfers": {
-                "buying": 50.0424,
-                "selling": 52.684
+                "buying": 49.9035,
+                "selling": 52.4921
             }
         },
         {
             "currency_label": "EURO flag",
             "code": "EUR",
             "notes": {
-                "buying": 373.1104,
-                "selling": 389.8317
+                "buying": 371.8417,
+                "selling": 388.472
             },
             "drafts": {
-                "buying": 372.8166,
-                "selling": 389.9659
+                "buying": 371.5432,
+                "selling": 388.6083
             },
             "transfers": {
-                "buying": 376.0489,
-                "selling": 389.9659
+                "buying": 374.8275,
+                "selling": 388.6083
             }
         },
         {
             "currency_label": "STERLING POUND flag",
             "code": "GBP",
             "notes": {
-                "buying": 439.1684,
-                "selling": 456.6866
+                "buying": 436.8686,
+                "selling": 454.5053
             },
             "drafts": {
-                "buying": 440.76,
-                "selling": 456.2504
+                "buying": 438.493,
+                "selling": 454.0623
             },
             "transfers": {
-                "buying": 442.2048,
-                "selling": 456.2504
+                "buying": 439.9539,
+                "selling": 454.0623
             }
         },
         {
             "currency_label": "HONG KONG DOLLAR flag",
             "code": "HKD",
             "notes": {
-                "buying": 40.1225,
-                "selling": 43.8115
+                "buying": 40.0979,
+                "selling": 43.8173
             },
             "drafts": {
-                "buying": 41.6223,
-                "selling": 43.8115
+                "buying": 41.6177,
+                "selling": 43.8173
             },
             "transfers": {
-                "buying": 41.9593,
-                "selling": 43.8115
+                "buying": 41.9583,
+                "selling": 43.8173
             }
         },
         {
             "currency_label": "INDIAN RUPEES flag",
             "code": "INR",
             "notes": {
-                "buying": 2.922,
-                "selling": 3.742
+                "buying": 2.9459,
+                "selling": 3.7659
             },
             "drafts": {
-                "buying": 2.927,
-                "selling": 3.737
+                "buying": 2.9509,
+                "selling": 3.7609
             },
             "transfers": {
-                "buying": 3.132,
-                "selling": 3.737
+                "buying": 3.1559,
+                "selling": 3.7609
             }
         },
         {
             "currency_label": "JORDANIAN DINAR flag",
             "code": "JOD",
             "notes": {
-                "buying": 430.0295,
-                "selling": 494.2595
+                "buying": 426.0295,
+                "selling": 485.2595
             },
             "drafts": {
                 "buying": null,
@@ -201,24 +201,24 @@
             "currency_label": "JAPANESE YEN flag",
             "code": "JPY",
             "notes": {
-                "buying": 1.9855,
-                "selling": 2.0998
+                "buying": 1.9848,
+                "selling": 2.0953
             },
             "drafts": {
-                "buying": 2.0028,
-                "selling": 2.0998
+                "buying": 2.0014,
+                "selling": 2.0953
             },
             "transfers": {
-                "buying": 2.0164,
-                "selling": 2.0998
+                "buying": 2.0145,
+                "selling": 2.0953
             }
         },
         {
             "currency_label": "KOREAN WON flag",
             "code": "KRW",
             "notes": {
-                "buying": 0.2249,
-                "selling": 0.237
+                "buying": 0.2244,
+                "selling": 0.2365
             },
             "drafts": {
                 "buying": null,
@@ -233,8 +233,8 @@
             "currency_label": "KUWAITI DINAR flag",
             "code": "KWD",
             "notes": {
-                "buying": 961.3202,
-                "selling": 1125.1828
+                "buying": 952.6056,
+                "selling": 1114.4712
             },
             "drafts": {
                 "buying": null,
@@ -249,8 +249,8 @@
             "currency_label": "MALAYSIAN RINGGIT flag",
             "code": "MYR",
             "notes": {
-                "buying": 77.9338,
-                "selling": 84.3638
+                "buying": 77.8431,
+                "selling": 84.2731
             },
             "drafts": {
                 "buying": null,
@@ -269,36 +269,36 @@
                 "selling": null
             },
             "drafts": {
-                "buying": 34.1058,
-                "selling": 36.0121
+                "buying": 33.7467,
+                "selling": 35.5948
             },
             "transfers": {
-                "buying": 34.3681,
-                "selling": 36.0121
+                "buying": 34.0002,
+                "selling": 35.5948
             }
         },
         {
             "currency_label": "NEW ZEALAND DOLLAR flag",
             "code": "NZD",
             "notes": {
-                "buying": 187.8764,
-                "selling": 200.3204
+                "buying": 186.761,
+                "selling": 199.2848
             },
             "drafts": {
-                "buying": 187.9419,
-                "selling": 200.3204
+                "buying": 186.8328,
+                "selling": 199.2848
             },
             "transfers": {
-                "buying": 189.966,
-                "selling": 200.3204
+                "buying": 188.8842,
+                "selling": 199.2848
             }
         },
         {
             "currency_label": "OMANIAN RIAL flag",
             "code": "OMR",
             "notes": {
-                "buying": 815.1272,
-                "selling": 890.497
+                "buying": 810.1272,
+                "selling": 885.9509
             },
             "drafts": {
                 "buying": null,
@@ -313,8 +313,8 @@
             "currency_label": "QATAR RIYAL flag",
             "code": "QAR",
             "notes": {
-                "buying": 73.7668,
-                "selling": 94.3497
+                "buying": 73.7883,
+                "selling": 94.3712
             },
             "drafts": {
                 "buying": null,
@@ -329,8 +329,8 @@
             "currency_label": "SAUDI RIYAL flag",
             "code": "SAR",
             "notes": {
-                "buying": 79.3836,
-                "selling": 95.3808
+                "buying": 79.2449,
+                "selling": 95.0246
             },
             "drafts": {
                 "buying": null,
@@ -349,44 +349,44 @@
                 "selling": null
             },
             "drafts": {
-                "buying": 33.7394,
-                "selling": 35.6221
+                "buying": 33.5533,
+                "selling": 35.3892
             },
             "transfers": {
-                "buying": 33.9881,
-                "selling": 35.6221
+                "buying": 33.7954,
+                "selling": 35.3892
             }
         },
         {
             "currency_label": "SINGAPORE DOLLAR flag",
             "code": "SGD",
             "notes": {
-                "buying": 250.5897,
-                "selling": 266.3719
+                "buying": 249.9594,
+                "selling": 265.7306
             },
             "drafts": {
-                "buying": 253.664,
-                "selling": 266.3719
+                "buying": 253.0488,
+                "selling": 265.7306
             },
             "transfers": {
-                "buying": 255.9439,
-                "selling": 266.3719
+                "buying": 255.3342,
+                "selling": 265.7306
             }
         },
         {
             "currency_label": "THAI BHAT flag",
             "code": "THB",
             "notes": {
-                "buying": 9.8575,
-                "selling": 11.0875
+                "buying": 9.8231,
+                "selling": 11.0531
             },
             "drafts": {
-                "buying": 9.8775,
-                "selling": 10.8575
+                "buying": 9.8431,
+                "selling": 10.8231
             },
             "transfers": {
-                "buying": 9.9075,
-                "selling": 10.8575
+                "buying": 9.8731,
+                "selling": 10.8231
             }
         },
         {
@@ -413,12 +413,12 @@
                 "selling": null
             },
             "drafts": {
-                "buying": 19.4921,
-                "selling": 20.6
+                "buying": 19.3913,
+                "selling": 20.5102
             },
             "transfers": {
-                "buying": 19.6482,
-                "selling": 20.6
+                "buying": 19.55,
+                "selling": 20.5102
             }
         }
     ]
